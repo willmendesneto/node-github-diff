@@ -168,14 +168,12 @@ const nodeGithubDiff = async ({ repository, base, head, githubToken }) => {
       },
     });
 
-    // eslint-disable-next-line no-process-env
-    const token = githubToken || process.env.GITHUB_DIFF_TOKEN;
     const [owner, repo] = repository.split('/');
 
-    if (token) {
+    if (githubToken) {
       github.authenticate({
         type: 'token',
-        token,
+        token: githubToken,
       });
     }
 

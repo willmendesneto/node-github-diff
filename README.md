@@ -37,15 +37,7 @@ which has permissions to read private repositories:
 
 ![Token permissions](./assets/token.png)
 
-Then, set the environment variable `GITHUB_DIFF_TOKEN` to the token you've just created
-
-You can run the following in the command line or add it your `.bashrc`, `.zshrc` or in your command line integration file
-
-```bash
-export GITHUB_DIFF_TOKEN=<token>
-```
-
-Or you can pass the github token information using in the options object, using  the `token` key.
+Then, you can pass the github token information in the options object, using the `token` key.
 
 
 ```js
