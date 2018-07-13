@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+
+## [2.0.0][] - 2018-07-13
 ## Updated
 -  Removing support for environment variable `GITHUB_DIFF_TOKEN`
 - Updating dependencies 
@@ -15,5 +17,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Added integration tests
 
 
-[Unreleased]: https://github.com/willmendesneto/node-github-diff/compare/v1.0.1...HEAD
+[Unreleased]: https://github.com/willmendesneto/node-github-diff/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/willmendesneto/node-github-diff/compare/v1.0.1...v2.0.0
 [1.0.1]: https://github.com/willmendesneto/node-github-diff/tree/v1.0.1
