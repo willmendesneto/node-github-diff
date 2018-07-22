@@ -22,12 +22,22 @@ A script to check the diffs between project versions.
 ```js
 const nodeGithubDiff = require('node-github-diff');
 
+// Using promises
 nodeGithubDiff({
   repository: 'willmendesneto/generator-update-yeoman-test',
   base: 'v0.0.3',
   head: 'v0.0.5',
 })
 .then((gitPatches) => console.log(gitPatches));
+
+// using async/await
+const gitPatches = await nodeGithubDiff(
+  repository: 'willmendesneto/generator-update-yeoman-test',
+  base: 'v0.0.3',
+  head: 'v0.0.5',
+);
+
+console.log(gitPatches);
 ```
 
 
@@ -68,29 +78,10 @@ This package is using `async/await` feature, so please make sure you are using `
 
 ### Parameters
 
-
-## Usage
-
-```js
-const nodeGithubDiff = require('node-github-diff');
-
-// Using promises
-nodeGithubDiff({
-  repository: 'willmendesneto/generator-update-yeoman-test',
-  base: 'v0.0.3',
-  head: 'v0.0.5',
-})
-.then((gitPatches) => console.log(gitPatches));
-
-// using async/await
-const gitPatches = await nodeGithubDiff(
-  repository: 'willmendesneto/generator-update-yeoman-test',
-  base: 'v0.0.3',
-  head: 'v0.0.5',
-);
-
-console.log(gitPatches);
-```
+- `repository`: Github repository to be checked;
+- `base`: Package version to use as a starting point to check the diff;
+- `head`: Package version to use as a final point to check the diff;
+- `token`: github token to be used in case of private repositories;
 
 
 ## Author
