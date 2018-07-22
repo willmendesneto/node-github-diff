@@ -2,6 +2,10 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/willmendesneto/node-github-diff.svg)](https://greenkeeper.io/)
 
+
+[![Build Status](https://circleci.com/gh/willmendesneto/node-github-diff.svg?style=shield)](https://circleci.com/gh/willmendesneto/node-github-diff)
+[![Coverage Status](https://coveralls.io/repos/github/willmendesneto/node-github-diff/badge.svg?branch=master)](https://coveralls.io/github/willmendesneto/node-github-diff?branch=master)
+
 > Github diffs with Node style 😎
 
 [![MIT License][license-badge]][license]
@@ -98,7 +102,7 @@ console.log(gitPatches);
 
 
 [license-badge]: https://img.shields.io/badge/license-MIT%20License-blue.svg?style=flat-square
-[license]: https://github.com/willmendesneto/nodebots-workshop/blob/master/LICENSE
+[license]: https://github.com/willmendesneto/node-github-diff/blob/master/LICENSE
 
 [prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [prs]: http://makeapullrequest.com
