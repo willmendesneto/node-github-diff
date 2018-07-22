@@ -6,6 +6,7 @@
   "scripts": {
     "editorconfig-tools-check": "editorconfig-tools check ./index.js ./test/**",
     "lint": "eslint .",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls && rm -rf coverage",
     "test": "NODE_ENV=test nyc --reporter=lcov --reporter=html mocha --recursive test",
     "version": "version-changelog CHANGELOG.md && changelog-verify CHANGELOG.md && git add CHANGELOG.md"
   },
@@ -25,6 +26,7 @@
   "homepage": "https://github.com/willmendesneto/node-github-diff#readme",
   "devDependencies": {
     "changelog-verify": "^1.1.0",
+    "coveralls": "^3.0.2",
     "editorconfig-tools": "^0.1.1",
     "eslint": "^5.0.0",
     "eslint-config-standard": "^11.0.0",
