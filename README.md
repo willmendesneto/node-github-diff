@@ -31,11 +31,11 @@ nodeGithubDiff({
 .then((gitPatches) => console.log(gitPatches));
 
 // using async/await
-const gitPatches = await nodeGithubDiff(
+const gitPatches = await nodeGithubDiff({
   repository: 'willmendesneto/generator-update-yeoman-test',
   base: 'v0.0.3',
   head: 'v0.0.5',
-);
+});
 
 console.log(gitPatches);
 ```
