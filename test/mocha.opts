@@ -2,3 +2,4 @@
 --exit
 --timeout=35000
 --check-leaks
+--require test/setup.js

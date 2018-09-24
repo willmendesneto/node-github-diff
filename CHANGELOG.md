@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Bumping dependencies
 - Simplifying ESLint
 
+### Added
+- Using `nock` for unit tests to mock Github API endpoints
+- Creating new NPM script `npm run test:integration` to run the tests pointing to Github API
+
 ## [2.0.0][] - 2018-07-13
 ## Updated
 -  Removing support for environment variable `GITHUB_DIFF_TOKEN`
