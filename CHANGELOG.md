@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+
+## [2.0.1][] - 2018-09-24
 ### Updated
 - Bumping dependencies
 - Simplifying ESLint
@@ -24,6 +26,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Added integration tests
 
 
-[Unreleased]: https://github.com/willmendesneto/node-github-diff/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/willmendesneto/node-github-diff/compare/v2.0.1...HEAD
+[2.0.1]: https://github.com/willmendesneto/node-github-diff/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/willmendesneto/node-github-diff/compare/v1.0.1...v2.0.0
 [1.0.1]: https://github.com/willmendesneto/node-github-diff/tree/v1.0.1

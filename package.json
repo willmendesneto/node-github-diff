@@ -1,6 +1,6 @@
 {
   "name": "node-github-diff",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "node-github-diff - Check the difference between package versions",
   "main": "index.js",
   "scripts": {
