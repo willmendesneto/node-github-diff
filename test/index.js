@@ -1,5 +1,4 @@
 const assert = require('assert');
-const fs = require('fs');
 const nodeGithubDiff = require('./../index');
 
 describe('Application bootstrap entry point', () => {

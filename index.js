@@ -19,7 +19,7 @@ const getContent = async (github, owner, repo, path, commit) => {
       repo,
       path,
       ref: commit,
-    })
+    });
 
     return res.data.content;
   } catch (err) {
@@ -64,7 +64,7 @@ const getContentByStatus = async ({
   let content;
   // Get the content for the files
   if (status === 'removed') {
-    content = await getContent(github, owner, repo, filename, base)
+    content = await getContent(github, owner, repo, filename, base);
 
     return {
       filename,
@@ -75,7 +75,7 @@ const getContentByStatus = async ({
     };
 
   } else if (status === 'added') {
-    content = await getContent(github, owner, repo, filename, head)
+    content = await getContent(github, owner, repo, filename, head);
 
     return {
       filename,
@@ -123,7 +123,7 @@ const getContentByStatus = async ({
     status,
     header: buildHeader(filename, filename),
   };
-}
+};
 
 const comparePackageVersions = async (github, owner, repo, base, head) => {
 

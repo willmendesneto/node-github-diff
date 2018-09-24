@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased][]
 ### Updated
 - Bumping dependencies
+- Simplifying ESLint
 
 ## [2.0.0][] - 2018-07-13
 ## Updated
