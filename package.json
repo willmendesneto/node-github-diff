@@ -16,6 +16,10 @@
   "directories": {
     "test": "test"
   },
+  "files": [
+    "*.{js,md}",
+    "LICENSE"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/willmendesneto/node-github-diff.git"
