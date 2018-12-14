@@ -1,20 +1,17 @@
 const GithubApi = require('@octokit/rest');
 const isBinary = require('is-binary-buffer');
 
-const atob = (base64encoded) => {
+const atob = base64encoded => {
   const decodedFile = Buffer.from(base64encoded, 'base64');
 
   return isBinary(decodedFile) ? decodedFile : decodedFile.toString('utf8');
 };
 
-const buildHeader = (fileA, fileB) => `diff --git a/${fileA} b/${fileB}\n` +
-  `--- a/${fileA}\n` +
-  `+++ b/${fileB}\n`;
-
+const buildHeader = (fileA, fileB) => `diff --git a/${fileA} b/${fileB}\n` + `--- a/${fileA}\n` + `+++ b/${fileB}\n`;
 
 const getContent = async (github, owner, repo, path, commit) => {
   try {
-    const res = await github.repos.getContent({
+    const res = await github.repos.getContents({
       owner,
       repo,
       path,
@@ -25,21 +22,21 @@ const getContent = async (github, owner, repo, path, commit) => {
   } catch (err) {
     try {
       const apiError = JSON.parse(err);
-      if (apiError.errors.find((error) => error.code === 'too_large')) {
+      if (apiError.errors.find(error => error.code === 'too_large')) {
         const gitTree = await github.gitdata.getTree({
           owner,
           repo,
           // More details why recursive is required in
           // https://developer.github.com/v3/git/trees/#get-a-tree-recursively
           recursive: true,
-          sha: commit
+          sha: commit,
         });
 
-        const { sha } = gitTree.tree.find((file) => file.path === path) || {};
+        const { sha } = gitTree.tree.find(file => file.path === path) || {};
         const data = await github.gitdata.getBlob({
           owner,
           repo,
-          sha
+          sha,
         });
 
         return data.content;
@@ -52,14 +49,7 @@ const getContent = async (github, owner, repo, path, commit) => {
   }
 };
 
-const getContentByStatus = async ({
-  github,
-  owner,
-  repo,
-  base,
-  head,
-  file
-}) => {
+const getContentByStatus = async ({ github, owner, repo, base, head, file }) => {
   const { filename, patch, status } = file;
   let content;
   // Get the content for the files
@@ -73,7 +63,6 @@ const getContentByStatus = async ({
       header: buildHeader(filename, filename),
       fileA: atob(content),
     };
-
   } else if (status === 'added') {
     content = await getContent(github, owner, repo, filename, head);
 
@@ -84,7 +73,6 @@ const getContentByStatus = async ({
       header: buildHeader(filename, filename),
       fileB: atob(content),
     };
-
   } else if (status === 'modified') {
     const [fileA, fileB] = await Promise.all([
       getContent(github, owner, repo, filename, base),
@@ -99,7 +87,6 @@ const getContentByStatus = async ({
       fileA: atob(fileA),
       fileB: atob(fileB),
     };
-
   } else if (status === 'renamed') {
     content = await getContent(github, owner, repo, filename, head);
     const decodedFile = atob(content);
@@ -126,7 +113,6 @@ const getContentByStatus = async ({
 };
 
 const comparePackageVersions = async (github, owner, repo, base, head) => {
-
   try {
     const res = await github.repos.compareCommits({
       owner,
@@ -135,7 +121,7 @@ const comparePackageVersions = async (github, owner, repo, base, head) => {
       head,
     });
 
-    const comparedCommits = res.data.files.map((file) => {
+    const comparedCommits = res.data.files.map(file => {
       const content = {
         github,
         owner,
@@ -157,7 +143,6 @@ const comparePackageVersions = async (github, owner, repo, base, head) => {
 };
 
 const nodeGithubDiff = async ({ repository, base, head, githubToken }) => {
-
   try {
     // Setup the github api
     const github = new GithubApi({
@@ -177,13 +162,7 @@ const nodeGithubDiff = async ({ repository, base, head, githubToken }) => {
       });
     }
 
-    const data = await comparePackageVersions(
-      github,
-      owner,
-      repo,
-      base,
-      head
-    );
+    const data = await comparePackageVersions(github, owner, repo, base, head);
 
     return data;
   } catch (error) {
