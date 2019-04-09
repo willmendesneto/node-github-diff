@@ -147,9 +147,8 @@ const nodeGithubDiff = async ({ repository, base, head, githubToken }) => {
     // Setup the github api
     const github = new GithubApi({
       baseUrl: 'https://api.github.com',
-      requestMedia: 'application/vnd.github.v3+json',
-      headers: {
-        'user-agent': 'node-github-diff',
+      request: {
+        agent: 'node-github-diff',
       },
     });
 
