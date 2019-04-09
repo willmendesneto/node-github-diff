@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+## [2.1.0][] - 2019-04-09
+
 ### Updated
 
 - Upgrading `@octokit/rest` to `v16.23.2`
@@ -57,3 +59,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [2.0.2]: https://github.com/willmendesneto/node-github-diff/tree/v2.0.2
 [unreleased]: https://github.com/willmendesneto/node-github-diff/compare/v2.0.3...HEAD
 [2.0.3]: https://github.com/willmendesneto/node-github-diff/tree/v2.0.3
+
+
+[Unreleased]: https://github.com/willmendesneto/node-github-diff/compare/v2.1.0...HEAD
+[2.1.0]: https://github.com/willmendesneto/node-github-diff/tree/v2.1.0
