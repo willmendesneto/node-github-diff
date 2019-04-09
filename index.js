@@ -146,21 +146,16 @@ const nodeGithubDiff = async ({ repository, base, head, githubToken }) => {
   try {
     // Setup the github api
     const github = new GithubApi({
+      auth: githubToken || undefined,
       baseUrl: 'https://api.github.com',
+      userAgent: 'node-github-diff',
       request: {
-        agent: 'node-github-diff',
+        agent: false,
+        timeout: 0,
       },
     });
 
     const [owner, repo] = repository.split('/');
-
-    if (githubToken) {
-      github.authenticate({
-        type: 'token',
-        token: githubToken,
-      });
-    }
-
     const data = await comparePackageVersions(github, owner, repo, base, head);
 
     return data;

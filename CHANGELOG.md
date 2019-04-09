@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Fixed
+
+- Adding auth token integration with latest `@octokit/rest`
+
 ## [2.1.0][] - 2019-04-09
 
 ### Updated
@@ -59,7 +63,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [2.0.2]: https://github.com/willmendesneto/node-github-diff/tree/v2.0.2
 [unreleased]: https://github.com/willmendesneto/node-github-diff/compare/v2.0.3...HEAD
 [2.0.3]: https://github.com/willmendesneto/node-github-diff/tree/v2.0.3
-
-
-[Unreleased]: https://github.com/willmendesneto/node-github-diff/compare/v2.1.0...HEAD
+[unreleased]: https://github.com/willmendesneto/node-github-diff/compare/v2.1.0...HEAD
 [2.1.0]: https://github.com/willmendesneto/node-github-diff/tree/v2.1.0
