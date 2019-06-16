@@ -87,7 +87,6 @@ This package is using `async/await` feature, so please make sure you are using `
 ## Author
 
 **Wilson Mendes (willmendesneto)**
-+ <https://plus.google.com/+WilsonMendes>
 + <https://twitter.com/willmendesneto>
 + <http://github.com/willmendesneto>
 
