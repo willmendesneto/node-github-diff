@@ -35,7 +35,7 @@
     "editorconfig-tools": "^0.1.1",
     "eslint": "^6.0.0",
     "mocha": "^6.1.2",
-    "nock": "^11.1.0",
+    "nock": "^12.0.0",
     "nyc": "^14.0.0",
     "proxyquire": "^2.0.1",
     "sinon": "^9.0.0",
