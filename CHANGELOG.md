@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+## [3.0.0][] - 2020-04-30
+
 ### Added
 
 - Adding `npm run test:fixtures:update` to update the fixtures
@@ -79,3 +81,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [2.1.0]: https://github.com/willmendesneto/node-github-diff/tree/v2.1.0
 [unreleased]: https://github.com/willmendesneto/node-github-diff/compare/v2.2.0...HEAD
 [2.2.0]: https://github.com/willmendesneto/node-github-diff/tree/v2.2.0
+
+
+[Unreleased]: https://github.com/willmendesneto/node-github-diff/compare/v3.0.0...HEAD
+[3.0.0]: https://github.com/willmendesneto/node-github-diff/tree/v3.0.0
