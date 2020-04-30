@@ -7,6 +7,7 @@
     "lint": "eslint .",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls && rm -rf coverage",
     "test": "NODE_ENV=test-unit nyc --reporter=lcov --reporter=html mocha --recursive test",
+    "test:fixtures:update": "NODE_ENV=test NOCK_RECORD=true nyc --reporter=lcov --reporter=html mocha --recursive test",
     "test:integration": "NODE_ENV=test nyc --reporter=lcov --reporter=html mocha --recursive test",
     "version": "version-changelog CHANGELOG.md && changelog-verify CHANGELOG.md && git add CHANGELOG.md"
   },
@@ -40,7 +41,7 @@
     "version-changelog": "^3.1.1"
   },
   "dependencies": {
-    "@octokit/rest": "^16.23.2",
+    "@octokit/rest": "^17.6.0",
     "is-binary-buffer": "^2.0.0"
   }
 }

@@ -1,14 +1,41 @@
 const assert = require('assert');
 const nodeGithubDiff = require('./../index');
 
+const nock = require('nock');
+const fs = require('fs');
+const path = require('path');
+
 describe('Application bootstrap entry point', () => {
   let gitPatches;
   before(async () => {
+    if (process.env.NOCK_RECORD === 'true') {
+      nock.recorder.rec({
+        dont_print: true,
+      });
+    }
+
     gitPatches = await nodeGithubDiff({
       repository: 'willmendesneto/generator-update-yeoman-test',
       base: 'v0.0.3',
       head: 'v0.0.5',
     });
+  });
+
+  after(() => {
+    if (process.env.NOCK_RECORD === 'true') {
+      var fixtures = nock.recorder.play();
+
+      var fixtureContent = `const nock = require('nock');
+
+${fixtures}
+
+`;
+      fs.writeFileSync(
+        `${path.resolve(path.join(__dirname, './fixtures'))}/github-api.js`,
+        fixtureContent.replace(new RegExp(';,', 'g'), ';'),
+        'utf8'
+      );
+    }
   });
 
   it('should return all the expected patches', () => {

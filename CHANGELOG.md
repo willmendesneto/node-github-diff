@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Added
+
+- Adding `npm run test:fixtures:update` to update the fixtures
+
+### Updated
+
+- Upgrading `@octokit/rest` to `v17.6.0`
+- Upgrading NodeJS to v12
+- Update CircleCI to use NodeJS v12
+
 ## [2.2.0][] - 2019-04-09
 
 ### Fixed
@@ -67,7 +77,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [2.0.3]: https://github.com/willmendesneto/node-github-diff/tree/v2.0.3
 [unreleased]: https://github.com/willmendesneto/node-github-diff/compare/v2.1.0...HEAD
 [2.1.0]: https://github.com/willmendesneto/node-github-diff/tree/v2.1.0
-
-
-[Unreleased]: https://github.com/willmendesneto/node-github-diff/compare/v2.2.0...HEAD
+[unreleased]: https://github.com/willmendesneto/node-github-diff/compare/v2.2.0...HEAD
 [2.2.0]: https://github.com/willmendesneto/node-github-diff/tree/v2.2.0
