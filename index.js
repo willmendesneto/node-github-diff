@@ -1,7 +1,7 @@
-const GithubApi = require('@octokit/rest');
+const { Octokit } = require('@octokit/rest');
 const isBinary = require('is-binary-buffer');
 
-const atob = base64encoded => {
+const atob = (base64encoded) => {
   const decodedFile = Buffer.from(base64encoded, 'base64');
 
   return isBinary(decodedFile) ? decodedFile : decodedFile.toString('utf8');
@@ -22,7 +22,7 @@ const getContent = async (github, owner, repo, path, commit) => {
   } catch (err) {
     try {
       const apiError = JSON.parse(err);
-      if (apiError.errors.find(error => error.code === 'too_large')) {
+      if (apiError.errors.find((error) => error.code === 'too_large')) {
         const gitTree = await github.gitdata.getTree({
           owner,
           repo,
@@ -32,7 +32,7 @@ const getContent = async (github, owner, repo, path, commit) => {
           sha: commit,
         });
 
-        const { sha } = gitTree.tree.find(file => file.path === path) || {};
+        const { sha } = gitTree.tree.find((file) => file.path === path) || {};
         const data = await github.gitdata.getBlob({
           owner,
           repo,
@@ -121,7 +121,7 @@ const comparePackageVersions = async (github, owner, repo, base, head) => {
       head,
     });
 
-    const comparedCommits = res.data.files.map(file => {
+    const comparedCommits = res.data.files.map((file) => {
       const content = {
         github,
         owner,
@@ -145,7 +145,7 @@ const comparePackageVersions = async (github, owner, repo, base, head) => {
 const nodeGithubDiff = async ({ repository, base, head, githubToken }) => {
   try {
     // Setup the github api
-    const github = new GithubApi({
+    const github = new Octokit({
       auth: githubToken || undefined,
       baseUrl: 'https://api.github.com',
       userAgent: 'node-github-diff',
