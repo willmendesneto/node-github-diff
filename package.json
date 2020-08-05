@@ -41,7 +41,7 @@
     "version-changelog": "^3.1.1"
   },
   "dependencies": {
-    "@octokit/rest": "^17.6.0",
+    "@octokit/rest": "^17.11.2",
     "is-binary-buffer": "^2.0.0"
   }
 }
