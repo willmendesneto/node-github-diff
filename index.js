@@ -11,7 +11,7 @@ const buildHeader = (fileA, fileB) => `diff --git a/${fileA} b/${fileB}\n` + `--
 
 const getContent = async (github, owner, repo, path, commit) => {
   try {
-    const res = await github.repos.getContents({
+    const res = await github.repos.getContent({
       owner,
       repo,
       path,

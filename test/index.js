@@ -14,11 +14,17 @@ describe('Application bootstrap entry point', () => {
       });
     }
 
-    gitPatches = await nodeGithubDiff({
+    const params = {
       repository: 'willmendesneto/generator-update-yeoman-test',
       base: 'v0.0.3',
       head: 'v0.0.5',
-    });
+    };
+
+    if (process.env.GITHUB_TOKEN) {
+      params.token = process.env.GITHUB_TOKEN;
+    }
+
+    gitPatches = await nodeGithubDiff(params);
   });
 
   after(() => {
