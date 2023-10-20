@@ -68,13 +68,13 @@ nodeGithubDiff({
 
 ### Run node-github-diff
 
-Make sure you have `npm@>=5.2.0`:
+Make sure you have `npm@>=9.6.7`:
 
 ```
 npm install -g npm@latest
 ```
 
-This package is using `async/await` feature, so please make sure you are using `node@>=v7.6.0` which supports this feature by default based on [Node.green website](https://node.green/). In case you can't please make sure you're running the code with `--harmony-async-await` flag or using solving in your code.
+This package is using `async/await` feature, so please make sure you are using `node@>=v18.0.0` which supports this feature by default based on [Node.green website](https://node.green/). In case you can't please make sure you're running the code with `--harmony-async-await` flag or using solving in your code.
 
 ### Parameters
 
