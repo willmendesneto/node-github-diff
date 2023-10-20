@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+## [4.0.0][] - 2023-10-19
+
 ### Updated
 - Updating dependencies
 - Upgrading node to v18
@@ -87,5 +89,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [2.2.0]: https://github.com/willmendesneto/node-github-diff/tree/v2.2.0
 
 
-[Unreleased]: https://github.com/willmendesneto/node-github-diff/compare/v3.0.0...HEAD
+[Unreleased]: https://github.com/willmendesneto/node-github-diff/compare/v4.0.0...HEAD
+[4.0.0]: https://github.com/willmendesneto/node-github-diff/compare/v3.0.0...v4.0.0
 [3.0.0]: https://github.com/willmendesneto/node-github-diff/tree/v3.0.0
