@@ -11,14 +11,14 @@ const buildHeader = (fileA, fileB) => `diff --git a/${fileA} b/${fileB}\n` + `--
 
 const getContent = async (github, owner, repo, path, commit) => {
   try {
-    const res = await github.repos.getContent({
+    const { data } = await github.repos.getContent({
       owner,
       repo,
       path,
       ref: commit,
     });
 
-    return res.data.content;
+    return data.content;
   } catch (err) {
     try {
       const apiError = JSON.parse(err);
@@ -33,13 +33,13 @@ const getContent = async (github, owner, repo, path, commit) => {
         });
 
         const { sha } = gitTree.tree.find((file) => file.path === path) || {};
-        const data = await github.gitdata.getBlob({
+        const { content } = await github.gitdata.getBlob({
           owner,
           repo,
           sha,
         });
 
-        return data.content;
+        return content;
       }
 
       throw err;
@@ -114,27 +114,27 @@ const getContentByStatus = async ({ github, owner, repo, base, head, file }) => 
 
 const comparePackageVersions = async (github, owner, repo, base, head) => {
   try {
-    const res = await github.repos.compareCommits({
+    const { data } = await github.repos.compareCommits({
       owner,
       repo,
       base,
       head,
     });
 
-    const comparedCommits = res.data.files.map((file) => {
-      const content = {
-        github,
-        owner,
-        repo,
-        base,
-        head,
-        file,
-      };
+    const commits = await Promise.all(
+      data.files.map((file) => {
+        const content = {
+          github,
+          owner,
+          repo,
+          base,
+          head,
+          file,
+        };
 
-      return getContentByStatus(content);
-    });
-
-    const commits = await Promise.all(comparedCommits);
+        return getContentByStatus(content);
+      })
+    );
 
     return commits;
   } catch (err) {
@@ -156,6 +156,10 @@ const nodeGithubDiff = async ({ repository, base, head, githubToken }) => {
     });
 
     const [owner, repo] = repository.split('/');
+    if (!owner || !repo) {
+      throw new Error('Repository param should have "owner/repo" pattern');
+    }
+
     const data = await comparePackageVersions(github, owner, repo, base, head);
 
     return data;
