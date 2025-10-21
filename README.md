@@ -2,7 +2,6 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/willmendesneto/node-github-diff.svg)](https://greenkeeper.io/)
 
-
 [![Build Status](https://circleci.com/gh/willmendesneto/node-github-diff.svg?style=shield)](https://circleci.com/gh/willmendesneto/node-github-diff)
 [![Coverage Status](https://coveralls.io/repos/github/willmendesneto/node-github-diff/badge.svg?branch=master)](https://coveralls.io/github/willmendesneto/node-github-diff?branch=master)
 
@@ -13,7 +12,6 @@
 [![Watch on GitHub][github-watch-badge]][github-watch]
 [![Star on GitHub][github-star-badge]][github-star]
 [![Tweet][twitter-badge]][twitter]
-
 
 A script to check the diffs between project versions.
 
@@ -40,7 +38,6 @@ const gitPatches = await nodeGithubDiff({
 console.log(gitPatches);
 ```
 
-
 ## Setup
 
 ### Private repositories
@@ -52,7 +49,6 @@ which has permissions to read private repositories:
 ![Token permissions](./assets/token.png)
 
 Then, you can pass the github token information in the options object, using the `token` key.
-
 
 ```js
 const nodeGithubDiff = require('node-github-diff');
@@ -70,7 +66,7 @@ nodeGithubDiff({
 
 Make sure you have `npm@>=9.6.7`:
 
-```
+```shell
 npm install -g npm@latest
 ```
 
@@ -83,13 +79,11 @@ This package is using `async/await` feature, so please make sure you are using `
 - `head`: Package version to use as a final point to check the diff;
 - `token`: github token to be used in case of private repositories;
 
-
 ## Author
 
-**Wilson Mendes (willmendesneto)**
-+ <https://twitter.com/willmendesneto>
-+ <http://github.com/willmendesneto>
+Wilson Mendes (willmendesneto)
 
+- [willmendesneto on GitHub](https://github.com/willmendesneto)
 
 [license-badge]: https://img.shields.io/badge/license-MIT%20License-blue.svg?style=flat-square
 [license]: https://github.com/willmendesneto/node-github-diff/blob/master/LICENSE
